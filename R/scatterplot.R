@@ -47,7 +47,8 @@ scatterplot_arules <- function(rules, measure = c("support","confidence"),
     #col = heat_hcl(100),
     #gray_range = c(.1,.8),
     newpage = TRUE,
-    jitter = NA
+    jitter = NA,
+    bg = NULL
   ))
   
   
@@ -241,6 +242,9 @@ scatterplot_int <- function(rules, measure, shading, control, ...){
     addspace <- 0
   
   ## main
+  if (!is.null(control$bg)) {
+    grid.rect(gp = gpar(fill = control$bg))
+  }
   gTitle(control$main)
   
   ## colorkey
